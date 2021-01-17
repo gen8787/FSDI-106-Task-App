@@ -7,5 +7,7 @@ class Task{
         this.dueDate = dueDate;
         this.status = status;
         this.description = description;
+
+        this.user = "Gary";
     }
 }

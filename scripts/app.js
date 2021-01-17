@@ -2,7 +2,6 @@
 let isHidden = true;
 let isImportant = true;
 
-
 var hideIcon = `<i class="far fa-eye-slash"></i>`
 var showIcon = `<i class="far fa-eye"></i>`
 
@@ -51,17 +50,11 @@ function importantHandler() {
     if (isImportant == false) {
         isImportant = true;
         $("#iconImp").removeClass("far").addClass("fas");
-
+    // N O T   I M P O R T A N T
     } else if (isImportant == true) {
         isImportant = false;
         $("#iconImp").removeClass("fas").addClass("far");
     }
-}
-
-
-// D A T E   P I C K E R
-function getDate() {
-    $(".date").datepicker();
 }
 
 
@@ -102,6 +95,28 @@ function createTask(e) {
 
             return;
         }
+    }
+
+    // V A L I D A T I O N S
+    let errors = false;
+    $("#errors").html("");
+
+    if (!inputTask) {
+        errors = true;
+        $("#errors").append(`<li>Please enter a title.</li>`);
+    }
+
+    if (!inputDescription) {
+        errors = true;
+        $("#errors").append(`<li>Please enter a description.</li>`);
+    }
+
+    if (errors) {
+        $(".alert").removeClass("hide");
+
+        setTimeout(() => $(".alert").addClass("hide"), 5000);
+
+        return;
     }
 
     var newTask = new Task(inputTaskId, inputTask, inputImportant, inputStartDate, inputEndDate, inputStatus, inputDescription);
@@ -197,7 +212,6 @@ function init() {
     // E V E N T   L I S T E N E R S
     $("#btnHideShow").click(hideShow);
     $("#iconImp").click(importantHandler);
-    $(".date").click(getDate);
     $("#taskSubmit").click(createTask);
     $(".complete").on('click', completeTask);
 
@@ -205,7 +219,6 @@ function init() {
     updateTaskId();
     hideShow();
     importantHandler();
-    getDate();
 }
 
 window.onload = init;

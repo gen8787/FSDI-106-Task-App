@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/app.css">
-    <link rel="stylesheet" type="text/css" href="./css/datePicker.css">
     <title>Task App</title>
 </head>
 <body>
@@ -29,12 +28,16 @@
         </section>
 
         <div id="hideShow">
-            <button id="btnHideShow" class="btn btn-primary">button</button>
+            <button id="btnHideShow" class="btn btn-primary"></button>
         </div>
 
 <!-- T A S K   I N F O   F O R M -->
         <section class="shadow-right p-3" id="details">
             <h3 class="border-bottom border-secondary display-6 mb-4">Task Info</h3>
+
+            <div class="alert alert-danger hide" role="alert">
+                <small id="errors"></small>
+            </div>
 
             <form action="" class="">
                 <div class="form-group w-25">
