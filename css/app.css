@@ -16,7 +16,7 @@ section {
 }
 
 #list {
-    flex: 2;
+    flex: 3;
 }
 
 #details {
@@ -49,3 +49,26 @@ section {
     /* margin-right: 3rem; */
 }
 
+.oneTask {
+    height: 5rem;
+    background-color: rgba(255, 255, 255, 0.45);
+    border: 2px solid rgba(90, 90, 90, 0.75);
+    border-radius: 5px;
+}
+
+.oneTask p {
+    margin-right: 0;
+}
+
+#noTasks {
+    height: 40vh;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(90, 90, 90, 0.75);
+    border-radius: 5px;
+    color: rgba(90, 90, 90, 0.55);
+}
+
+.oneTask {
+    font-size: 18px;
+}

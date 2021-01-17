@@ -15,30 +15,36 @@
 
 <!-- T A S K   L I S T -->
         <section class="p-2" id="list">
+
             <h3 class="display-4 border-bottom border-secondary p-3">Task List</h3>
 
-            <div class="allTasks">
-                
+            <div id="allTasks" class="px-3">
+
+                <div id="noTasks" class="row mt-4 d-flex align-items-center shadow">
+                    <h1 class="display-5">add tasks to see your task list</h1>
+                </div>
+
             </div>
+
         </section>
 
         <div id="hideShow">
             <button id="btnHideShow" class="btn btn-primary">button</button>
         </div>
 
-<!-- T A S K   I N F O -->
+<!-- T A S K   I N F O   F O R M -->
         <section class="shadow-right p-3" id="details">
             <h3 class="border-bottom border-secondary display-6 mb-4">Task Info</h3>
 
             <form action="" class="">
-                <div class="form-group d-inline-block">
+                <div class="form-group w-25">
                     <label class="form-label font-weight-bold" for=""><b>Task Id</b></label>
                     <input type="text" name="" id="taskId" class="form-control" readonly>
                 </div>
 
-                <div class="form-group mt-4">
+                <div class="form-group mt-3">
                     <label class="form-label font-weight-bold" for=""><b>Task</b></label>
-                    <input type="text" name="" id="taskId" class="form-control" placeholder="enter a task">
+                    <input type="text" name="" id="task" class="form-control" placeholder="enter a task">
                 </div>
 
 
@@ -47,33 +53,33 @@
                     <i id="iconImp" class="fa-star mx-2"></i>
                 </div>
 
-                <div class="form-group mt-3">
+                <div class="form-group mt-4">
                     <label class="form-label font-weight-bold" for=""><b>Start Date</b></label>
                     <input class="form-control date" type="datetime-local" name="" id="taskStartDate" placeholder="select date">
                 </div>
 
-                <div class="form-group mt-4">
+                <div class="form-group mt-3">
                     <label class="form-label font-weight-bold" for=""><b>End Date</b></label>
                     <input class="form-control date" type="datetime-local" name="" id="taskEndDate" placeholder="select date">
                 </div>
 
-                <div class="form-group mt-4">
+                <div class="form-group mt-3">
                     <label for="" class="form-label font-weight-bold"><b>Status:</b></label>
-                    <select class="form-select" name="" id="">
+                    <select class="form-select" name="" id="taskStatus">
                         <option value="" disabled selected>--- select status ---</option>
-                        <option value="1">Pending</option>
-                        <option value="2">In Progress</option>
-                        <option value="3">Complete</option>
+                        <option value="pending">Pending</option>
+                        <option value="inProgress">In Progress</option>
+                        <option value="complete">Complete</option>
                     </select>
                 </div>
 
-                <div class="form-group mt-4">
+                <div class="form-group mt-3">
                     <label class="form-label font-weight-bold" for=""><b>Description</b></label>
-                    <textarea placeholder="enter a description about the task" class="form-control" name="" id="taskdescription" cols="30" rows="10"></textarea>
+                    <textarea placeholder="enter a description about the task" class="form-control" name="" id="taskDescription" cols="30" rows="10"></textarea>
                 </div>
 
-                <input id="taskSubmit" type="submit" value="Do Something" class="d-flex btn btn-lg btn-outline-primary mt-4 ms-auto px-5">
-
+                <input id="taskSubmit" type="submit" value="Add Task" class="d-flex btn btn-lg btn-outline-primary mt-4 ms-auto px-5">
+                
             </form>
 
         </section>
@@ -86,6 +92,7 @@
 
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 
+    <script src="./scripts/task.js"></script>
     <script src="./scripts/app.js"></script>
 </body>
 </html>
