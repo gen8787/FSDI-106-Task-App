@@ -1,5 +1,5 @@
 class Task{
-    constructor(taskId, task, important, startDate, dueDate, status, description){
+    constructor(taskId, task, important, startDate, dueDate, status, description) {
         this.taskId = taskId;
         this.task = task;
         this.important = important,
@@ -8,6 +8,7 @@ class Task{
         this.status = status;
         this.description = description;
 
-        this.user = "Gary";
+        this.user = "gary";
+        this.title = task;
     }
 }

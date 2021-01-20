@@ -1,9 +1,11 @@
 // G L O B A L   V A R I A B L E S
+var serverURL = "http://fsdi.azurewebsites.net/api";
+
 let isHidden = true;
 let isImportant = true;
 
-var hideIcon = `<i class="far fa-eye-slash"></i>`
-var showIcon = `<i class="far fa-eye"></i>`
+var hideIcon = `<i class="far fa-eye-slash"></i>`;
+var showIcon = `<i class="far fa-eye"></i>`;
 
 const allTasks = {
     nextTaskId: 1,
@@ -13,6 +15,26 @@ const allTasks = {
 
 // D E S T R U C T U R E
 var { nextTaskId, tasks } = allTasks;
+
+
+// G E T   D A T A
+function getData() {
+    $.ajax({
+        url: serverURL + '/tasks',
+        type: 'GET',
+        success: res => {
+            console.log(res);
+
+            for (var i = 0; i < res.length; i ++) {
+                var task = res[i];
+                if (task.user == "gary") {
+                    displayOneTask(task);
+                }
+            }
+        },
+        error: err => console.log(err)
+    });
+}
 
 
 // H I D E   S H O W   T A S K   I N F O
@@ -134,7 +156,19 @@ function createTask(e) {
     nextTaskId ++;
     updateTaskId();
     
-    displayOneTask(newTask);
+    // C R E A T E   I N   S E R V E R
+    $.ajax({
+        url: serverURL + '/tasks',
+        type: 'POST',
+        data: JSON.stringify(newTask),
+        contentType: 'application/json',
+        success: res => {
+            console.log(res);
+            displayOneTask(newTask);
+        },
+        error: err => console.log(err)
+    })
+
 }
 
 
@@ -201,6 +235,15 @@ function completeTask(taskId) {
         }
     }
 
+    $.ajax({
+        url: serverURL + `/tasks/${taskId}`,
+        type: 'DELETE',
+        success: res => {
+            console.log(res);
+        },
+        error: err => console.log(err)
+    });
+
     displayAllTasks();
 }
 
@@ -216,6 +259,7 @@ function init() {
     $(".complete").on('click', completeTask);
 
     // F U N C T I O N S
+    getData();
     updateTaskId();
     hideShow();
     importantHandler();
